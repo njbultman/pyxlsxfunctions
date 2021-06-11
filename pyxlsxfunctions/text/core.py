@@ -1,19 +1,50 @@
 def UPPER(text):
-    """Convert lengths between inches and feet.
+    """Convert all text to uppercase.
 
     Parameters
     ----------
-    x : array_like
-        Lengths in feet.
-    reverse : bool, optional
-        If this is set to true this function converts from feet to inches
-        instead of the default behaviour of inches to feet.
+    x : list or string
+        String(s) to be converted to uppercase.
 
     Returns
     -------
-    ndarray
-        An array of converted lengths with the same shape as `x`. If `x` is a
-        0-d array, then a scalar is returned.
+    list or string
+        A list of converted strings or converted string to uppercase.
     """
-    return(text.upper())
+    if type(text) == str:
+        return((text).upper())
+    elif type(text) == list:
+        try:
+            text_return = [(i).upper() for i in text]
+            return(text_return)
+        except:
+            print('Invalid list: please enter a list of strings.')
+    else:
+        print('Invalid type: please enter a string or list of strings.')
+        
+        
+
+def LOWER(text):
+    """Convert all text to uppercase.
+
+    Parameters
+    ----------
+    x : list or string
+        String(s) to be converted to lowercase.
+
+    Returns
+    -------
+    list or string
+        A list of converted strings or converted string to lowercase.
+    """
+    if type(text) == str:
+        return((text).lower())
+    elif type(text) == list:
+        try:
+            text_return = [(i).lower() for i in text]
+            return(text_return)
+        except:
+            print('Invalid list: please enter a list of strings.')
+    else:
+        print('Invalid type: please enter a string or list of strings.')
     
