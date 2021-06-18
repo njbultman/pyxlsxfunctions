@@ -1,4 +1,4 @@
-from pyxlsxfunctions.text.core import UPPER, LOWER, LEFT
+from pyxlsxfunctions.text.core import UPPER, LOWER, LEFT, RIGHT
 
 # Unit tests for UPPER
 def test_UPPER_1():
@@ -41,3 +41,19 @@ def test_LEFT_4():
 
 def test_LEFT_5():
     assert LEFT('1234', 2) == '12'
+
+# Unit tests for RIGHT
+def test_RIGHT_1():
+    assert RIGHT('hi', -1) == None
+
+def test_RIGHT_2():
+    assert RIGHT('hi', 1) == 'i'
+
+def test_RIGHT_3():
+    assert RIGHT(['hey', 'hi', 'heyhey', 'testy'], 3) == ['hey', 'hi', 'hey', 'sty']
+
+def test_RIGHT_4():
+    assert RIGHT(1234, 2) == None
+
+def test_RIGHT_5():
+    assert RIGHT('1234', 2) == '34'

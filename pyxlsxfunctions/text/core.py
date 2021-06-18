@@ -74,4 +74,33 @@ def LEFT(text, n):
             print('Invalid type: please enter a string or list of strings.')
     else:
         print('n must be greater than zero.')
+
+def RIGHT(text, n):
+    """Slices string(s) a specified number of characters from right.
+
+    Parameters
+    ----------
+    text : list or string
+        String(s) to be sliced from right.
+    n : integer
+        Number of characters to slice from right. Must be greater than zero.
+
+    Returns
+    -------
+    list or string
+        A list of converted strings or converted string that were sliced n characters from right.
+    """
+    if n > 0:
+        if type(text) == str:
+            return(text[-n:])
+        elif type(text) == list:
+            try:
+                text_return = [i[-n:] for i in text]
+                return(text_return)
+            except:
+                print('Invalid list: please enter a list of strings.')
+        else:
+            print('Invalid type: please enter a string or list of strings.')
+    else:
+        print('n must be greater than zero.')
     
