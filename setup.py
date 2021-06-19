@@ -12,8 +12,8 @@ setup(
       author = 'Nick Bultman',
       description = 'Use Excel functions in Python',
       name = 'pyxlsxfunctions',
-      version = '0.1.0',
-      install_requires = ['datetime'],
+      version = '0.2.0',
+      install_requires = ['datetime', 'numpy'],
       packages = find_packages(include = ['pyxlsxfunctions', 'pyxlsxfunctions.*']),
       classifiers = [
               'Development Status :: 2 - Pre-Alpha',
