@@ -3,4 +3,4 @@ pyxlsxfunctions.math
 ====================
 Use math based functions from Excel in Python.
 """
-from .core import SUMIF
+from .core import SUMIF, COUNTIF
