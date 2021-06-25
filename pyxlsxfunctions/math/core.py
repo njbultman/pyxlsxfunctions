@@ -59,7 +59,7 @@ def AND(condition_1, condition_2):
 
     Parameters
     ----------
-    condition_1: condition that evaluates to True or False
+    condition_1 : condition that evaluates to True or False
         condition that will return True or False 
     condition_2 : condition that evaluates to True or False
         condition that will return True or False 
@@ -82,7 +82,7 @@ def OR(condition_1, condition_2):
 
     Parameters
     ----------
-    condition_1: condition that evaluates to True or False
+    condition_1 : condition that evaluates to True or False
         condition that will return True or False 
     condition_2 : condition that evaluates to True or False
         condition that will return True or False 
@@ -99,4 +99,29 @@ def OR(condition_1, condition_2):
             print('Invalid type: second condition does not evaluate to True or False.')
     else:
         print('Invalid type: first condition does not evaluate to True or False.')
+
+def IF(logical_statement, expression_true, expression_false):
+    """Evaluates the logical statement. If it is true, reuturns the true expression. If not, returns false expression.
+
+    Parameters
+    ----------
+    logical_statement : condition that evaluates to True or False
+        condition that will return True or False 
+    expression_true : expression
+        expression that will be returned if logical statement is true
+    expression_false : expression
+        expression that will be returned if logical statement is false
+
+    Returns
+    -------
+    expression
+        True expression if logical statement is true, false expression otherwise
+    """
+    if(type(logical_statement) == bool):
+        if(logical_statement == True):
+            return(expression_true)
+        else:
+            return(expression_false)
+    else:
+        print('Invalid type: logical statement does not evaluate to True or False.')
         
