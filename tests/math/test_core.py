@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR
 
 #Unit tests for SUMIF
 def test_SUMIF_1():
@@ -35,3 +35,19 @@ def test_AND_4():
 
 def test_AND_5():
     assert AND(2 > 10, 1) == None
+
+#Unit tests for OR
+def test_OR_1():
+    assert OR(2 < 10, 5 < 10) == True
+
+def test_OR_2():
+    assert OR(2 > 10, 5 < 10) == True
+
+def test_OR_3():
+    assert OR(2 > 10, 5 > 10) == False
+
+def test_OR_4():
+    assert OR(0, 5 > 10) == None
+
+def test_OR_5():
+    assert OR(2 > 10, 1) == None

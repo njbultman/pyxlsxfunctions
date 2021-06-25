@@ -71,7 +71,30 @@ def AND(condition_1, condition_2):
     """
     if(type(condition_1) == bool):
         if(type(condition_2) == bool):
-            return(condition_1 & condition_2)
+            return(condition_1 and condition_2)
+        else:
+            print('Invalid type: second condition does not evaluate to True or False.')
+    else:
+        print('Invalid type: first condition does not evaluate to True or False.')
+    
+def OR(condition_1, condition_2):
+    """Evaluates both conditions and returns True or False depending on how both conditions are evaluated.
+
+    Parameters
+    ----------
+    condition_1: condition that evaluates to True or False
+        condition that will return True or False 
+    condition_2 : condition that evaluates to True or False
+        condition that will return True or False 
+
+    Returns
+    -------
+    boolean
+        True if one or both conditions are True, False otherwise
+    """
+    if(type(condition_1) == bool):
+        if(type(condition_2) == bool):
+            return(condition_1 or condition_2)
         else:
             print('Invalid type: second condition does not evaluate to True or False.')
     else:
