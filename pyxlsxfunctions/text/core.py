@@ -103,4 +103,28 @@ def RIGHT(text, n):
             print('Invalid type: please enter a string or list of strings.')
     else:
         print('n must be greater than zero.')
+
+def TRIM(text):
+    """Strips leading/trailing whitespace from string(s).
+
+    Parameters
+    ----------
+    text : list or string
+        String(s) to have whitespace trimmed.
+
+    Returns
+    -------
+    list or string
+        A list of trimmd strings or trimmed string with whitespace removed.
+    """
+    if type(text) == str:
+        return(text.strip())
+    elif type(text) == list:
+        try:
+            text_return = [i.strip() for i in text]
+            return(text_return)
+        except:
+            print('Invalid list: please enter a list of strings.')
+    else:
+        print('Invalid type: please enter a string or list of strings.')
     

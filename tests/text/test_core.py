@@ -1,4 +1,4 @@
-from pyxlsxfunctions.text.core import UPPER, LOWER, LEFT, RIGHT
+from pyxlsxfunctions.text.core import UPPER, LOWER, LEFT, RIGHT, TRIM
 
 # Unit tests for UPPER
 def test_UPPER_1():
@@ -57,3 +57,19 @@ def test_RIGHT_4():
 
 def test_RIGHT_5():
     assert RIGHT('1234', 2) == '34'
+
+# Unit tests for TRIM
+def test_TRIM_1():
+    assert TRIM('   hi') == 'hi'
+
+def test_TRIM_2():
+    assert TRIM('hi    ') == 'hi'
+
+def test_TRIM_3():
+    assert TRIM(['hey   ', '  hi  ', '  heyhey ', 'testy   ']) == ['hey', 'hi', 'heyhey', 'testy']
+
+def test_TRIM_4():
+    assert TRIM(1) == None
+
+def test_TRIM_5():
+    assert TRIM([0, '  hi', 'hey ']) == None
