@@ -124,4 +124,37 @@ def IF(logical_statement, expression_true, expression_false):
             return(expression_false)
     else:
         print('Invalid type: logical statement does not evaluate to True or False.')
+
+def FV(rate, nper, pmt, pv):
+    """Given an interest rate, the number of payment periods, the periodic payments, and the present value, calculate the future value.
+
+    Parameters
+    ----------
+    rate : numeric
+        interest rate you would like used when compounding
+    nper : integer
+        number of periods to use when compounding the present value
+    pmt : integer, numeric, or list
+        integer, numeric, or list of future cash flows (should match nper) that you would like compounded. Starts at t = 1
+    pv : integer or numeric
+        present amount you wish to compound
+
+    Returns
+    -------
+    integer or numeric
+        future value of cash flows given
+    """
+    if type(pmt) == int:
+        pmt = np.array([pmt])
+    else:
+        pmt = np.array(pmt)
+    if nper <= 0:
+        print("nper needs to be greater than zero.")
+    elif nper != len(pmt) and sum(pmt) != 0:
+        print("pmt vector length needs to match nper or be zero.")
+    else:
+        pv_fv = pv * (1 + rate) ** nper
+        fv_pmt = [(pmt[i - 1] * (1 + rate) ** (len(pmt) - i)) for i in np.arange(1, len(pmt) + 1, 1)]
+        return(sum(fv_pmt) + pv_fv)
+    
         

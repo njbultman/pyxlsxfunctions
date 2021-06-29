@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV
 
 # Unit tests for SUMIF
 def test_SUMIF_1():
@@ -61,3 +61,21 @@ def test_IF_2():
 
 def test_IF_3():
     assert IF(5, 'yes', 'no') == None
+
+# Unit tests for FV
+def test_FV_1():
+    assert round(FV(0.1, 3, [50, 100, 150], 100), 2) == round(100 * 1.1**3 + 50 * 1.1**2 + 100*1.1 + 150, 2)
+
+def test_FV_2():
+    assert FV(0.01, 2, [50, 100, 150], 100) == None
+
+def test_FV_3():
+    assert FV(0.01, -2, [50, 100, 150], 100) == None
+
+def test_FV_4():
+    assert round(FV(0.1, 1, 0, 100), 2) == round(100 * 1.1, 2)
+
+
+
+
+
