@@ -157,4 +157,36 @@ def FV(rate, nper, pmt, pv):
         fv_pmt = [(pmt[i - 1] * (1 + rate) ** (len(pmt) - i)) for i in np.arange(1, len(pmt) + 1, 1)]
         return(sum(fv_pmt) + pv_fv)
     
+def PV(rate, nper, pmt, fv):
+    """Given an interest rate, the number of payment periods, the periodic payments, and the future value, calculate the present value.
+
+    Parameters
+    ----------
+    rate : numeric
+        interest rate you would like used when discounting
+    nper : integer
+        number of periods to use when discounting the future value
+    pmt : integer, numeric, or list
+        integer, numeric, or list of future cash flows (should match nper) that you would like discounted. Starts at t = 1
+    fv : integer or numeric
+        future amount you wish to discount
+
+    Returns
+    -------
+    integer or numeric
+        present value of cash flows given
+    """
+    if type(pmt) == int:
+        pmt = np.array([pmt])
+    else:
+        pmt = np.array(pmt)
+    if nper <= 0:
+        print("nper needs to be greater than zero.")
+    elif nper != len(pmt) and sum(pmt) != 0:
+        print("pmt vector length needs to match nper or be zero.")
+    else:
+        pv_fv = fv / (1 + rate) ** nper
+        fv_pmt = [(pmt[i - 1] / (1 + rate) ** i) for i in np.arange(1, len(pmt) + 1, 1)]
+        return(sum(fv_pmt) + pv_fv)
+    
         

@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV
 
 # Unit tests for SUMIF
 def test_SUMIF_1():
@@ -74,6 +74,19 @@ def test_FV_3():
 
 def test_FV_4():
     assert round(FV(0.1, 1, 0, 100), 2) == round(100 * 1.1, 2)
+
+# Unit tests for PV
+def test_PV_1():
+    assert round(PV(0.1, 3, [50, 100, 150], 100), 2) == round(100 / 1.1**3 + 150 / 1.1**3 + 100/1.1**2 + 50/1.1, 2)
+
+def test_PV_2():
+    assert PV(0.01, 2, [50, 100, 150], 100) == None
+
+def test_PV_3():
+    assert PV(0.01, -2, [50, 100, 150], 100) == None
+
+def test_PV_4():
+    assert round(PV(0.1, 1, 0, 100), 2) == 90.91
 
 
 
