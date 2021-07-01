@@ -188,5 +188,23 @@ def PV(rate, nper, pmt, fv):
         pv_fv = fv / (1 + rate) ** nper
         fv_pmt = [(pmt[i - 1] / (1 + rate) ** i) for i in np.arange(1, len(pmt) + 1, 1)]
         return(sum(fv_pmt) + pv_fv)
+
+def AVERAGE(nums):
+    """Given a sequence of numbers, calculate the average of them.
+
+    Parameters
+    ----------
+    nums : list or numpy array
+        numbers you would like averaged
+
+    Returns
+    -------
+    integer or numeric
+        average of numbers in the list or array
+    """
+    if type(nums) == list or type(nums) == np.ndarray:
+        return(np.mean(nums))
+    else:
+        print('Invalid type: nums needs to be a list or numpy array.')
     
         

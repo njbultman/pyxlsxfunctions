@@ -1,4 +1,5 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE
+import numpy as np
 
 # Unit tests for SUMIF
 def test_SUMIF_1():
@@ -87,6 +88,16 @@ def test_PV_3():
 
 def test_PV_4():
     assert round(PV(0.1, 1, 0, 100), 2) == 90.91
+
+# Unit tests for AVERAGE
+def test_AVERAGE_1():
+    assert AVERAGE([1, 2, 3]) == 2.0
+
+def test_AVERAGE_2():
+    assert AVERAGE(np.array([1, 2, 3])) == 2.0
+
+def test_AVERAGE_3():
+    assert AVERAGE(1) == None
 
 
 
