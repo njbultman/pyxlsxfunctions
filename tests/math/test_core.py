@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN
 import numpy as np
 
 # Unit tests for SUMIF
@@ -98,6 +98,22 @@ def test_AVERAGE_2():
 
 def test_AVERAGE_3():
     assert AVERAGE(1) == None
+
+# Unit tests for LEN
+def test_LEN_1():
+    assert LEN(['hi', 'hey', 'hoho']) == [2, 3, 4]
+
+def test_LEN_2():
+    assert LEN('hi') == 2
+
+def test_LEN_3():
+    assert LEN(1) == None
+
+def test_LEN_4():
+    assert LEN(1.0) == None
+
+def test_LEN_5():
+    assert LEN(['hi', 1.0]) == None
 
 
 

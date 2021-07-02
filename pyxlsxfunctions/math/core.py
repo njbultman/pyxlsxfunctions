@@ -206,5 +206,33 @@ def AVERAGE(nums):
         return(np.mean(nums))
     else:
         print('Invalid type: nums needs to be a list or numpy array.')
+
+def LEN(text):
+    """Count the characters in a string or list of strings.
+
+    Parameters
+    ----------
+    text : list or string
+        String(s) to be converted to uppercase.
+
+    Returns
+    -------
+    list or string
+        A list of integers for each string's count of characters or an integer for the string character counts.
+    """
+    if type(text) == str:
+        return(len(text))
+    elif type(text) == int:
+        print('Invalid type: please enter a string or list of strings.')
+    elif type(text) == float:
+        print('Invalid type: please enter a string or list of strings.')
+    elif type(text) == list:
+        try:
+            text_return = [len(i) for i in text]
+            return(text_return)
+        except:
+            print('Invalid list: please enter a list of strings.')
+    else:
+        print('Invalid type: please enter a string or list of strings.')
     
         
