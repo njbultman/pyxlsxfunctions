@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 def SUMIF(sum_list, condition_list, condition):
     """Sum a list based on a specfic condition in another list.
@@ -213,7 +214,7 @@ def LEN(text):
     Parameters
     ----------
     text : list or string
-        String(s) to be converted to uppercase.
+        string(s) to be converted to uppercase.
 
     Returns
     -------
@@ -234,5 +235,38 @@ def LEN(text):
             print('Invalid list: please enter a list of strings.')
     else:
         print('Invalid type: please enter a string or list of strings.')
+
+def VLOOKUP(lookup_list, lookup_df, join_col_name, column_index):
+    """Find/Return Values From Matching Rows in Data Frame.
+
+    Parameters
+    ----------
+    lookup_list : list or numpy array
+        values that you would like to join on.
+    lookup_df : pandas data frame
+        data frame that contains values in lookup_list and other values you would like to connect
+    join_col_name : string
+        name of the column that has values from lookup_list
+    column_index : int
+        column in data frame that you would like returned once lookup value is found in lookup_df
+
+    Returns
+    -------
+    pandas data frame
+        data frame containing lookup_list and the joined column specified.
+    """
+    if type(lookup_df) == pd.core.frame.DataFrame:
+        if column_index < len(lookup_df.columns):
+            column_name = lookup_df.columns[column_index]
+            df_1 = pd.DataFrame({join_col_name: lookup_list})
+            df_2 = df_1.merge(lookup_df, on = join_col_name, how = 'left')
+            df_2 = df_2[[join_col_name, column_name]]
+            return(df_2)
+        else:
+            print('Column index is too large given data frame supplied. Double check column index.')
+    else:
+        print('Invalid type: is lookup_df a valid pandas data frame?')
+
+
     
         

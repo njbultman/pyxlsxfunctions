@@ -13,7 +13,7 @@ setup(
       description = 'Use Excel functions in Python',
       name = 'pyxlsxfunctions',
       version = '0.2.0',
-      install_requires = ['datetime', 'numpy'],
+      install_requires = ['datetime', 'numpy', 'pandas'],
       packages = find_packages(include = ['pyxlsxfunctions', 'pyxlsxfunctions.*']),
       classifiers = [
               'Development Status :: 2 - Pre-Alpha',

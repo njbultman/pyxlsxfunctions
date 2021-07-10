@@ -1,5 +1,6 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP
 import numpy as np
+import pandas as pd
 
 # Unit tests for SUMIF
 def test_SUMIF_1():
@@ -115,6 +116,15 @@ def test_LEN_4():
 def test_LEN_5():
     assert LEN(['hi', 1.0]) == None
 
+# Unit tests for VLOOKUP
+def test_VLOOKUP_1():
+    assert type(VLOOKUP(["Nick", "Jake", "Tyler", "Nate"], pd.DataFrame({'name': ["Nick", "Jake", "Tyler", "Nate"], 'number':[1, 2, 3, 4]}), "name", 1)) == pd.core.frame.DataFrame
+
+def test_VLOOKUP_2():
+    assert VLOOKUP(["Nick", "Jake", "Tyler", "Nate"], pd.DataFrame({'name': ["Nick", "Jake", "Tyler", "Nate"], 'number':[1, 2, 3, 4]}), "name", 2) == None
+
+def test_VLOOKUP_3():
+    assert VLOOKUP(["Nick", "Jake", "Tyler", "Nate"], [1, 2, 3 ,4], "name", 2) == None
 
 
 
