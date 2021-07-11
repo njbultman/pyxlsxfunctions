@@ -1,4 +1,5 @@
-from pyxlsxfunctions.text.core import UPPER, LOWER, LEFT, RIGHT, TRIM
+from pyxlsxfunctions.text.core import UPPER, LOWER, LEFT, RIGHT, TRIM, FIND
+import numpy as np
 
 # Unit tests for UPPER
 def test_UPPER_1():
@@ -73,3 +74,25 @@ def test_TRIM_4():
 
 def test_TRIM_5():
     assert TRIM([0, '  hi', 'hey ']) == None
+
+# Unit tests for FIND
+def test_FIND_1():
+    assert FIND('h', 'hi') == 0
+
+def test_FIND_2():
+    assert FIND('h', ['hi', 'iih']) == [0, 2]
+
+def test_FIND_3():
+    assert FIND('h', ['hi', 'iih', 'i']) == [0, 2, np.nan]
+
+def test_FIND_4():
+    assert FIND('h', ['hi', 'iih', 0]) == None
+
+def test_FIND_5():
+    assert FIND('h', 2) == None
+
+def test_FIND_6():
+    assert FIND(0, 'hi') == None
+
+def test_FIND_7():
+    assert FIND('hi', 'hiiiii') == None

@@ -1,10 +1,12 @@
+import numpy as np
+
 def UPPER(text):
     """Convert all text to uppercase.
 
     Parameters
     ----------
     text : list or string
-        String(s) to be converted to uppercase.
+        string(s) to be converted to uppercase.
 
     Returns
     -------
@@ -28,7 +30,7 @@ def LOWER(text):
     Parameters
     ----------
     text : list or string
-        String(s) to be converted to lowercase.
+        string(s) to be converted to lowercase.
 
     Returns
     -------
@@ -52,9 +54,9 @@ def LEFT(text, n):
     Parameters
     ----------
     text : list or string
-        String(s) to be sliced from left.
+        string(s) to be sliced from left.
     n : integer
-        Number of characters to slice from left. Must be greater than zero.
+        number of characters to slice from left. Must be greater than zero.
 
     Returns
     -------
@@ -81,9 +83,9 @@ def RIGHT(text, n):
     Parameters
     ----------
     text : list or string
-        String(s) to be sliced from right.
+        string(s) to be sliced from right.
     n : integer
-        Number of characters to slice from right. Must be greater than zero.
+        number of characters to slice from right. Must be greater than zero.
 
     Returns
     -------
@@ -110,12 +112,12 @@ def TRIM(text):
     Parameters
     ----------
     text : list or string
-        String(s) to have whitespace trimmed.
+        string(s) to have whitespace trimmed
 
     Returns
     -------
     list or string
-        A list of trimmd strings or trimmed string with whitespace removed.
+        A list of trimmed strings or trimmed string with whitespace removed.
     """
     if type(text) == str:
         return(text.strip())
@@ -127,4 +129,46 @@ def TRIM(text):
             print('Invalid list: please enter a list of strings.')
     else:
         print('Invalid type: please enter a string or list of strings.')
+
+def FIND(char, text):
+    """Finds the location of the character specified in the string or list of strings.
+
+    Parameters
+    ----------
+    char : string
+        one character string that you would like the location found in text
+    text : list or string
+        string(s) to have char found in
+
+    Returns
+    -------
+    list or int
+        A list of integers or an integer where the character specified was found.
+    """
+    if type(char) == str:
+        if len(char) == 1:
+            if type(text) == str:
+                for i in range(len(text)):
+                    if text[i] == char:
+                        return(i)
+                    else:
+                        return(np.nan)
+            elif type(text) == list:
+                return_list = []
+                try:
+                    for i in text:
+                        for z in range(len(i)):
+                            if i[z] == char:
+                                return_list.append(z)
+                            elif i[z] != char and z == len(i) - 1 and (len(return_list) - 1) != text.index(i):
+                                return_list.append(np.nan)
+                    return(return_list)             
+                except:
+                    print('Invalid list: please enter a list of strings.')
+            else:
+                print('Invalid type: please enter a string or list of strings.')
+        else:
+            print('Invalid char length: char must be a one character string.')
+    else:
+        print('Invalid type: char must be a string.')
     

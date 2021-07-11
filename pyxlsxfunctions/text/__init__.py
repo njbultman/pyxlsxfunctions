@@ -5,4 +5,4 @@ pyxlsxfunctions.text
 ====================
 Use text based functions from Excel in Python.
 """
-from .core import UPPER, LOWER, LEFT, RIGHT, TRIM
+from .core import UPPER, LOWER, LEFT, RIGHT, TRIM, FIND
