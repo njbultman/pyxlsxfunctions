@@ -1,4 +1,5 @@
 import datetime as dt
+import pandas as pd
 
 def NOW():
     """Returns the current date and time in the local time zone.
@@ -47,5 +48,44 @@ def DAYS(date1, date2):
             print('Invalid string: did you enter the dates in the proper YYYY-MM-DD format?')
     else:
         print('Invalid type: passed arguments other than strings.')
+
+def EOMONTH(date, months):
+    """Given a date string and the number of months in future, calculate the end of month for that date.
+
+    Parameters
+    ----------
+    date : string
+        start date in the form of a string: 'YYYY-MM-DD' or list of strings in same format
+    months : int
+        integer with how many months you want in future or past
+
+    Returns
+    -------
+    string or list
+        String or list of strings containing the end of the month corresponding to the months in future selected.
+    """
+    if(type(date) == str):
+        try:
+            date1 = pd.to_datetime(date)
+            if months >= 1:
+                date_final = date1 + pd.tseries.offsets.MonthEnd(months + 1)
+            else:
+                date_final = date1 + pd.tseries.offsets.MonthEnd(months)
+            return(str(date_final)[0:10])
+        except:
+            print('Invalid string: please pass a valid date string.')
+    elif(type(date) == list):
+        try:
+            date1 = pd.to_datetime(date)
+            if months >= 1:
+                date_final = date1 + pd.tseries.offsets.MonthEnd(months + 1)
+            else:
+                date_final = date1 + pd.tseries.offsets.MonthEnd(months)
+            date_list_final = [str(i)[0:10] for i in date_final]
+            return(date_list_final)
+        except:
+            print('Invalid list: pass a valid list of strings that can be converted to a date.')
+    else:
+        print('Invalid type: passed argument other than string or list into date.')
 
     
