@@ -57,7 +57,7 @@ def EOMONTH(date, months):
     date : string
         start date in the form of a string: 'YYYY-MM-DD' or list of strings in same format
     months : int
-        integer with how many months you want in future or past
+        integer with how many months you want in future
 
     Returns
     -------
@@ -81,6 +81,39 @@ def EOMONTH(date, months):
                 date_final = date1 + pd.tseries.offsets.MonthEnd(months + 1)
             else:
                 date_final = date1 + pd.tseries.offsets.MonthEnd(months)
+            date_list_final = [str(i)[0:10] for i in date_final]
+            return(date_list_final)
+        except:
+            print('Invalid list: pass a valid list of strings that can be converted to a date.')
+    else:
+        print('Invalid type: passed argument other than string or list into date.')
+
+def EDATE(date, months):
+    """Given a date string and the number of months in future, calculate the date for the corresponding month in future.
+
+    Parameters
+    ----------
+    date : string
+        start date in the form of a string: 'YYYY-MM-DD' or list of strings in same format
+    months : int
+        integer with how many months you want in future
+
+    Returns
+    -------
+    string or list
+        String or list of strings containing the date corresponding to the months in future selected.
+    """
+    if(type(date) == str):
+        try:
+            date1 = pd.to_datetime(date)
+            date_final = date1 + pd.DateOffset(months=months)
+            return(str(date_final)[0:10])
+        except:
+            print('Invalid string: please pass a valid date string.')
+    elif(type(date) == list):
+        try:
+            date1 = pd.to_datetime(date)
+            date_final = date1 + pd.DateOffset(months=months)
             date_list_final = [str(i)[0:10] for i in date_final]
             return(date_list_final)
         except:
