@@ -267,6 +267,28 @@ def VLOOKUP(lookup_list, lookup_df, join_col_name, column_index):
     else:
         print('Invalid type: is lookup_df a valid pandas data frame?')
 
+def CORREL(list1, list2):
+    """Given two lists, calculate the correlation coefficient between them.
+
+    Parameters
+    ----------
+    list1 : int or numeric
+        first list of values you would like to calculate the correlation with 
+    list2 : int or numeric
+        second list of values you would like to calculate the correlation with  
+
+    Returns
+    -------
+    numeric
+        correlation coefficient between two lists.
+    """
+    list1 = np.array(list1)
+    list2 = np.array(list2)
+    try:
+        return(np.corrcoef(list1, list2)[0,1])
+    except:
+        print('Invalid list objects: have you passed int or numeric list objects of same length?')
+
 
     
         

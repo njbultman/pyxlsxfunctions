@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL
 import numpy as np
 import pandas as pd
 
@@ -125,6 +125,16 @@ def test_VLOOKUP_2():
 
 def test_VLOOKUP_3():
     assert VLOOKUP(["Nick", "Jake", "Tyler", "Nate"], [1, 2, 3 ,4], "name", 2) == None
+
+# Unit tests for CORREL
+def test_CORREL_1():
+    assert round(CORREL([1, 2, 3, 4], [2, 7, 1, 12]), 2) == 0.61
+
+def test_CORREL_2():
+    assert CORREL(['hi', 2, 3, 4], [2, 7, 1, 12]) == None
+
+def test_CORREL_3():
+    assert CORREL([1, 2, 3, 4], [2, 'hi', 1, 12]) == None
 
 
 
