@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL, AVERAGEIF
 import numpy as np
 import pandas as pd
 
@@ -135,6 +135,16 @@ def test_CORREL_2():
 
 def test_CORREL_3():
     assert CORREL([1, 2, 3, 4], [2, 'hi', 1, 12]) == None
+
+# Unit tests for AVERAGEIF
+def test_AVERAGEIF_1():
+    assert AVERAGEIF([1, 2, 3, 4, 5], ['yes', 'yes', 'no', 'yes', 'yes'], 'yes') == 3.0
+
+def test_AVERAGEIF_2():
+    assert AVERAGEIF([1, 2, 3, 4, 5], ['yes', 'yes', 'no', 'no', 'yes'], 1) == None
+
+def test_AVERAGEIF_3():
+    assert AVERAGEIF([1, 2, 3, 4, 5], ['yes', 'yes', 'no'], 'yes') == None
 
 
 

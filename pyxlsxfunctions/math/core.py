@@ -289,6 +289,33 @@ def CORREL(list1, list2):
     except:
         print('Invalid list objects: have you passed int or numeric list objects of same length?')
 
+def AVERAGEIF(avg_list, condition_list, condition):
+    """Find the average of a list based on a specfic condition in another list.
+
+    Parameters
+    ----------
+    avg_list : list or array
+        list or array that you will take the average of. Length must match condition_list.
+    condition_list : list or array
+        list or array that will be checked against condition for taking the average. Length must match avg_list.
+    condition : string
+        string to be checked against condition list.
+
+    Returns
+    -------
+    numeric
+        The total sum of numbers matching condition from condition list
+    """
+    if(len(avg_list) == len(condition_list)):
+        if(type(condition) == str):
+            avg_list = np.array(avg_list)
+            condition_list = np.array(condition_list)
+            return(np.mean(avg_list[condition_list == condition]))
+        else:
+            print('Invalid type: condition must be a string.')
+    else:
+        print('Length of avg_list and condition_list must match.')
+
 
     
         
