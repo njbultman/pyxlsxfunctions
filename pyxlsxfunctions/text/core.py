@@ -171,4 +171,35 @@ def FIND(char, text):
             print('Invalid char length: char must be a one character string.')
     else:
         print('Invalid type: char must be a string.')
-    
+
+def EXACT(text1, text2):
+    """Check to see if two strings (or lists of strings) are identical.
+
+    Parameters
+    ----------
+    text1 : list or string
+        string(s) (or numbers that will be converted) to be checked with text2.
+    text2 : list or string
+        string(s) to be checked with text1.
+
+    Returns
+    -------
+    list or boolean
+        A list of booleans or boolean indicating if string(s) in text1 matches string(s) in text2.
+    """
+    if type(text1) == str or type(text1) == int or type(text1) == float:
+        if type(text2) == str or type(text2) == int or type(text2) == float:
+            return(str(text1) == str(text2))
+        else:
+            print('Invalid type: text1 is a string, so text2 needs to be a string.')
+    elif type(text1) == list:
+        if type(text2) == list:
+            text1 = [str(i) for i in text1]
+            text2 = [str(i) for i in text2]
+            text1 = np.array(text1)
+            text2 = np.array(text2)
+            return(list(text1 == text2))
+        else:
+            print('Invalid type: text1 is a list, so text2 needs to be a list.')
+    else:
+        print('Invalid type: please enter something that can be converted to a string (or list of strings) for text1.')

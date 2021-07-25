@@ -1,4 +1,4 @@
-from pyxlsxfunctions.text.core import UPPER, LOWER, LEFT, RIGHT, TRIM, FIND
+from pyxlsxfunctions.text.core import UPPER, LOWER, LEFT, RIGHT, TRIM, FIND, EXACT
 import numpy as np
 
 # Unit tests for UPPER
@@ -96,3 +96,26 @@ def test_FIND_6():
 
 def test_FIND_7():
     assert FIND('hi', 'hiiiii') == None
+
+# Unit tests for EXACT
+def test_EXACT_1():
+    assert EXACT('hi', 'hi') == True
+
+def test_EXACT_2():
+    assert EXACT('hi', 'Hi') == False
+
+def test_EXACT_3():
+    assert EXACT(['hi', 'hi'], 'hi') == None
+
+def test_EXACT_4():
+    assert EXACT(['hi', 'HEY', 'hiii'], ['hi', 'hey', 'hi']) == [True, False, False]
+
+def test_EXACT_5():
+    assert EXACT(0, 1) == False
+
+def test_EXACT_6():
+    assert EXACT([0, 1, 2], [1, 1, 1]) == [False, True, False]
+
+def test_EXACT_7():
+    assert EXACT([2.5, 1.0, 2.5], [1, 1.0, 1.5]) == [False, True, False]
+
