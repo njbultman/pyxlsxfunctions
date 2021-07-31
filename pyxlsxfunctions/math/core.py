@@ -34,9 +34,9 @@ def COUNTIF(count_list, condition_list, condition):
     Parameters
     ----------
     count_list : list or array
-        list or array that will be summed. Length must match condition_list.
+        list or array that will be counted. Length must match condition_list.
     condition_list : list or array
-        list or array that will be checked against condition for summation. Length must match sum_list.
+        list or array that will be checked against condition for counting. Length must match count_list.
     condition : string
         string to be checked against condition list.
 
@@ -315,6 +315,28 @@ def AVERAGEIF(avg_list, condition_list, condition):
             print('Invalid type: condition must be a string.')
     else:
         print('Length of avg_list and condition_list must match.')
+
+def COUNTBLANK(count_list):
+    """Count the blank instances in a list.
+
+    Parameters
+    ----------
+    count_list : list or array
+        list or array that will be counted for blanks.
+
+    Returns
+    -------
+    numeric or integer
+        The total count of blank instances
+    """
+    if type(count_list) == list:
+        cnt = 0
+        for i in range(len(count_list)):
+            if count_list[i] == '':
+                cnt += 1
+        return(cnt)
+    else:
+        print('Invalid type: count_list must be a list.')
 
 
     

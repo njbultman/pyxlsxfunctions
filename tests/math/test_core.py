@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL, AVERAGEIF
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL, AVERAGEIF, COUNTBLANK
 import numpy as np
 import pandas as pd
 
@@ -145,6 +145,25 @@ def test_AVERAGEIF_2():
 
 def test_AVERAGEIF_3():
     assert AVERAGEIF([1, 2, 3, 4, 5], ['yes', 'yes', 'no'], 'yes') == None
+
+# Unit tests for COUNTBLANK
+def test_COUNTBLANK_1():
+    assert COUNTBLANK(['', '', 2]) == 2
+
+def test_COUNTBLANK_2():
+    assert COUNTBLANK(2) == None
+
+def test_COUNTBLANK_3():
+    assert COUNTBLANK(['', 1, 'hi']) == 1
+
+def test_COUNTBLANK_4():
+    assert COUNTBLANK(['', '', '']) == 3
+
+def test_COUNTBLANK_5():
+    assert COUNTBLANK([20, 1, 2]) == 0
+
+def test_COUNTBLANK_6():
+    assert COUNTBLANK('hey') == None
 
 
 
