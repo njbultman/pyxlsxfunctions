@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL, AVERAGEIF, COUNTBLANK
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL, AVERAGEIF, COUNTBLANK, RANDBETWEEN
 import numpy as np
 import pandas as pd
 
@@ -164,6 +164,22 @@ def test_COUNTBLANK_5():
 
 def test_COUNTBLANK_6():
     assert COUNTBLANK('hey') == None
+
+# Unit tests for RANDBETWEEN
+def test_RANDBETWEEN_1():
+    assert type(RANDBETWEEN(99, 500)) == np.int64
+
+def test_RANDBETWEEN_2():
+    assert RANDBETWEEN(99.0, 500) == None
+
+def test_RANDBETWEEN_3():
+    assert RANDBETWEEN(99, 500.0) == None
+
+def test_RANDBETWEEN_4():
+    assert RANDBETWEEN(99, 500) > 98
+
+def test_RANDBETWEEN_5():
+    assert RANDBETWEEN(99, 500) < 501
 
 
 

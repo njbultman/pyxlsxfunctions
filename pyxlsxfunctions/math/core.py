@@ -326,7 +326,7 @@ def COUNTBLANK(count_list):
 
     Returns
     -------
-    numeric or integer
+    numeric or int
         The total count of blank instances
     """
     if type(count_list) == list:
@@ -337,6 +337,30 @@ def COUNTBLANK(count_list):
         return(cnt)
     else:
         print('Invalid type: count_list must be a list.')
+
+def RANDBETWEEN(bottom, top):
+    """Returns a random integer between the range specified.
+
+    Parameters
+    ----------
+    bottom : int
+        integer that will be the floor of the range you want to take a random number from.
+    top : int
+        integer that will be the ceiling of the range you want to take a random number from.
+
+    Returns
+    -------
+    int
+        A random number from the range specified.
+    """
+    if type(bottom) == int:
+        if type(top) == int:
+            rng = np.arange(bottom, top + 1, 1)
+            return(np.random.choice(rng, 1)[0])
+        else:
+            print('Invalid type: top must be of type int.')
+    else:
+        print('Invalid type: bottom must be of type int.')
 
 
     
