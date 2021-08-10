@@ -1,4 +1,4 @@
-from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL, AVERAGEIF, COUNTBLANK, RANDBETWEEN
+from pyxlsxfunctions.math.core import SUMIF, COUNTIF, AND, OR, IF, FV, PV, AVERAGE, LEN, VLOOKUP, CORREL, AVERAGEIF, COUNTBLANK, RANDBETWEEN, POWER
 import numpy as np
 import pandas as pd
 
@@ -180,6 +180,16 @@ def test_RANDBETWEEN_4():
 
 def test_RANDBETWEEN_5():
     assert RANDBETWEEN(99, 500) < 501
+
+# Unit tests for POWER
+def test_POWER_1():
+    assert POWER(5, 3) == 125
+
+def test_POWER_2():
+    assert POWER('hi', 2) == None
+
+def test_POWER_3():
+    assert POWER(2, 'hi') == None
 
 
 

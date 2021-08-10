@@ -303,7 +303,7 @@ def AVERAGEIF(avg_list, condition_list, condition):
 
     Returns
     -------
-    numeric
+    int or float
         The total sum of numbers matching condition from condition list
     """
     if(len(avg_list) == len(condition_list)):
@@ -362,6 +362,27 @@ def RANDBETWEEN(bottom, top):
     else:
         print('Invalid type: bottom must be of type int.')
 
+def POWER(number, power):
+    """Raise a number to a given power.
 
+    Parameters
+    ----------
+    number : float or int
+        number you would like to raise a power to.
+    power : float or int
+        number that you would like the number argument raised to.
+
+    Returns
+    -------
+    int or float
+        The number raised to the power specified.
+    """
+    if type(number) == int or type(number) == float:
+        if type(power) == int or type(power) == float:
+            return(number ** power)
+        else:
+            print('Invalid type: power must be int or float.')
+    else:
+        print('Invalid type: number must be int or float.')
     
         
